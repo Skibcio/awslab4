@@ -1,8 +1,11 @@
-{	"expiration" : {"day":1},
-	"conditions": [ ["starts-with", "$key", "sebastian.student/"],
-    				 {"bucket": "bucketroz"}, 
-    				 {"acl": "private"},
-    				 {"success_action_redirect": "http://ec2-54-201-2-172.us-west-2.compute.amazonaws.com:8080/"},   
-    				 ["content-length-range", 0, 1048576]
-    				]   
+{ "expiration": "20016-12-01T12:00:00.000Z",
+  "conditions": [
+    {"bucket": "bucketroz"},
+    ["starts-with", "$key", "user/sebastian/"],
+    {"acl": "public-read"},
+    {"success_action_redirect": "http://google.com"},
+    ["eq", "$Content-Type", "text/html"],
+    {"x-amz-meta-uuid": "14365123651274"},
+    ["starts-with", "$x-amz-meta-tag", ""]
+  ]
 }
